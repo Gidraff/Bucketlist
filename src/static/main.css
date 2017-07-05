@@ -10,8 +10,15 @@ nav {
 	float: right;
 	background-color: #006600;
 	padding: 5px;
-	border-radius: 15px;
+	border-radius: 10px;
 	margin: 3px;
+}
+
+.btn1 {
+	background-color: #006600;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
 }
 
 nav ul {
@@ -56,11 +63,16 @@ nav ul li a {
 
 .reg-div {
 	text-align: center;
+	margin: 0 20px 0 20px;
 }
 
 .reg-div form {
 	background-color: #F7ECE3;
 	padding: 55px;
+}
+
+.reg-div form a {
+	text-decoration: none;
 }
 
 .reg-div form label {
@@ -74,6 +86,29 @@ nav ul li a {
 	box-shadow: 
 }
 
+
+
+.login-div {
+	text-align: center;
+	margin: 0 20px 0 20px;
+}
+
+.login-div form {
+	background-color: #F7ECE3;
+	padding: 120px;
+}
+
+.login-div form a {
+	text-decoration: none;
+
+}
+
+.login-div form input {
+	width: 20%;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 
+}
 
 
 footer  {
