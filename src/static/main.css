@@ -111,6 +111,25 @@ nav ul li a {
 }
 
 
+.create-div {
+	text-align: center;
+	margin: 0 20px 0 20px;
+
+}
+
+.create-div form {
+	background-color: #F7ECE3;
+	padding: 80px;
+}
+
+.create-div form h2 {
+	color: blue;
+}
+
+.create-div form input {
+	padding: 10px;
+}
+
 footer  {
 	background-color: #4d4d4d;
 	border-radius: 3px;
