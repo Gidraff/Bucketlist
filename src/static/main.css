@@ -22,8 +22,7 @@ nav ul {
 nav ul p {
 	display: inline;
 	clear: right;
-	-webkit-align-self: center; /* Safari 7.0+ */
-    align-self: center;
+
 }
 nav ul li {
 	display: inline-block;
@@ -41,7 +40,6 @@ nav ul li a {
 }
 
 .div-main {
-	font-size: 20px;
 	color: #b30000;
 	text-align: center;
 	background-image: url("img/bucketlist.jpg");
@@ -55,6 +53,28 @@ nav ul li a {
 .div-main p {
 	padding: 0 0 10px 0;
 }
+
+.reg-div {
+	text-align: center;
+}
+
+.reg-div form {
+	background-color: #F7ECE3;
+	padding: 55px;
+}
+
+.reg-div form label {
+	font-family: fantasy;
+}
+
+.reg-div form input {
+	width: 20%;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 
+}
+
+
 
 footer  {
 	background-color: #4d4d4d;
