@@ -129,6 +129,16 @@ nav ul li a {
 .create-div form input {
 	padding: 10px;
 }
+.view-dash {
+	text-align: center;
+	background-color: #F7ECE3;
+	padding: 80px;
+}
+
+.view-dash h1 {
+	color: blue;
+}
+
 
 footer  {
 	background-color: #4d4d4d;
