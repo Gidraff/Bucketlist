@@ -1,21 +1,21 @@
 # Bucketlist App
 
 ## Introduction
-A Bucketlist App let's keep track of  some of the things you may want to do in future.
+A Bucketlist App let's you keep track of  some of the things you may want to do in future.
 
-### Usage:
+### Bucketlist App Usage:
 Simply follow these steps:
 
 * create/sign up an account and
 * login/sign in to your account
 
-### Now you can be able to:
+### What You can do with Bucketlist App:
 * create a bucketlist and add items to it
 * view available bucketlists and there items
 * edit your bucketlists and its items
 * delete your bucketlists or its items
 
-### Installing Bucketlist App
+### Bucketlist App Guide:
 Go to Github and copy Bucketlist App Url.
 
 Open Your terminal and:
@@ -24,9 +24,9 @@ Open Your terminal and:
  <https://github.com/Gidraff/Bucketlist.git>
 
 ### Set up:
-You will need a virtual environment:
+You will need to a install virtual environment package:
 
-To install virtual environment package type on:
+To install type on your terminal command prompt:
 
  ```pip install virtualen```
 
