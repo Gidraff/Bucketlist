@@ -15,7 +15,7 @@ Simply follow these steps:
 * edit your bucketlists and its items
 * delete your bucketlists or its items
 
-### Bucketlist App Guide:
+### Bucketlist App installation Guide:
 Go to Github and copy Bucketlist App Url.
 
 Open Your terminal and:
