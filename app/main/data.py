@@ -1,4 +1,10 @@
+
+from app.main.bucketlist import BucketList
+from app.main.user import User
+from app.main.activity import Activity
+
 class Data:
-    user = []
+    users = []
     bucketlists = []
-    items = []
+    activities = []
+
