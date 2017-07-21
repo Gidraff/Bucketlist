@@ -20,8 +20,8 @@ class User(object):
                                 description=description,
                                 created_by=self.user_name,
                                 date_created=date_created,
-                                owner_id=self.user_id)
-        bucketlist.save_bucketlist()
+                                bucketlist_user_id=self._id)
+        bucketlist.save_bucketlist_info()
 
     @staticmethod
     def view_bucketlist(bucketlist_id):
@@ -43,36 +43,33 @@ class User(object):
                 return False
 
     @staticmethod
-    def delete_bucketlist(bucketlist_id):
-    def user_detail_to_dict(self):
-        """return user details as a dictionary"""
-
-        return {
-                'user_name':self.user_name,
-                'email':self.email,
-                'password':self.password,
-                'user_id':self._id
-                }
-
-    @staticmethod
     def verify_user(email):
         """checks whether user exists in the Data class"""
-        email_checker = [i['email'] for i in Data.user if email == i['email']]
+        email_checker = [mail['email'] for mail in Data.users if email == mail['email']]
         return "".join(email_checker) == email
     
     @classmethod
     def register_user(cls, name, user_name, email, password):
         does_exist = cls.verify_user(email)
         if does_exist is False:
-            new_user = cls(name, user_name, email, password)
-            new_user.save_info()
+            new_user = cls(user_name, email, password)
+            new_user.save_users_info()
             return True
         else:
             return False
 
-    def save_info(self):
-        """save user's detail in Data.users"""
-        Data.user.append(self.user_detail_to_dict())
+
+    def save_users_info(self):
+        """save user's formation in Data.users as dictionary"""
+        new_user= {
+            'username':self.user_name,
+            'email':self.email,
+            'password':self.password,
+            'id':self._id
+        }
+        Data.users.append(new_user)
+
+    
 
 
 
