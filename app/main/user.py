@@ -1,6 +1,6 @@
 """modules and standard libraries to be used by User class"""
 
-from datetime import datetime
+
 from uuid import uuid4
 from app.main.bucketlist import BucketList
 from app.main.data import Data
