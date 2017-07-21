@@ -18,3 +18,13 @@ class Data(object):
         elif 'activity' in args:
             Data.activities.append(args)
             return True
+
+    @staticmethod
+    def retrieve_data(_id, *args):
+        """retrieves data specifies"""
+        all_data = []
+        for data in args:
+            if _id == data['id'] or _id == data['owner_id']:
+                all_data.append(data)
+                return all_data
+            
