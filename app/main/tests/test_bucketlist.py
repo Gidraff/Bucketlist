@@ -17,4 +17,3 @@ class TestBucketList(TestCase):
             'created_by':'username',
             'owner_id':'123456'
         }
-        
