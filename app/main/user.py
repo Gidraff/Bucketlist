@@ -48,7 +48,7 @@ class User(object):
         return "".join(email_checker) == email
     
     @classmethod
-    def register_user(cls, name, user_name, email, password):
+    def register_user(cls, user_name, email, password):
         does_exist = cls.verify_user(email)
         if does_exist is False:
             new_user = cls(user_name, email, password)
