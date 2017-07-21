@@ -13,13 +13,12 @@ class User(object):
         self.password = password
         self._id = uuid4().hex
 
-    def create_bucketlist(self, title, description, date_created=datetime.utcnow()):
+    def create_bucketlist(self, title, description):
         """creates and saves user's bucketlist"""
 
         bucketlist = BucketList(title=title,
                                 description=description,
                                 created_by=self.user_name,
-                                date_created=date_created,
                                 bucketlist_user_id=self._id)
         bucketlist.save_bucketlist_info()
 
