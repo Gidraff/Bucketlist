@@ -27,4 +27,14 @@ class Data(object):
             if _id == data['id'] or _id == data['owner_id']:
                 all_data.append(data)
                 return all_data
+
+    @staticmethod
+    def retrieve_index(_id, *args):
+        """retrieves dictionary indices"""
+        indices = []
+        for data in args:
+            if _id == data['id']:
+                indices.append(data)
+        index_ = args.index(indices[0])
+        return index_
             
