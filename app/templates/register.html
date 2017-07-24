@@ -18,15 +18,13 @@
 
 
 <div class="reg-div">
-	<form>
-		<label>First Name</label><br>
-		<input type="text" name=""><br>
-		<label>Last  Name</label><br>
-		<input type="text" name=""><br>
+	<form action="{{url_for('register')}}" method="POST">
+		<label>username</label><br>
+		<input type="text" name="username"><br>
 		<label>Password </label><br>
 		<input type="password" name="password"><br>
 		<label>Confirm password</label><br>
-		<input type="password" name=""><br>
+		<input type="password" name="confirm_paasword"><br>
 		<p><i>already have an account?</i><a href="">login</a></p>
 		<button class="btn1">Register</button>
 	</form>
