@@ -64,7 +64,7 @@ class User(object):
         Data.users.append(new_user)
     def user_login(self, email):
         user_data = Data.retrieve_data(self._id)
-        if email == user_data['email']:
+        if email in user_data:
             return True
         else:
             return False
