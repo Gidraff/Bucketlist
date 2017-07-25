@@ -21,7 +21,7 @@ class Data(object):
 
     @staticmethod
     def retrieve_data(_id, *args):
-        """retrieves data specifies"""
+        """retrieves data specified"""
         all_data = []
         for data in args:
             if _id == data['id'] or _id == data['owner_id']:
