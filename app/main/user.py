@@ -62,6 +62,13 @@ class User(object):
             'id':self._id
         }
         Data.users.append(new_user)
+    def user_login(self, email):
+        user_data = Data.retrieve_data(self._id)
+        if email == user_data['email']:
+            return True
+        else:
+            return False
+
     @staticmethod
     def create_activity(_id, activity):
         """creates and saves user's activity"""
@@ -74,4 +81,3 @@ class User(object):
                 data['bucketlist_user_id']
             )
             new_bucketlist.create_activity(activity=activity)
-            
