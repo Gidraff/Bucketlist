@@ -1,5 +1,6 @@
 """modules and packages to be imported"""
 from flask import Flask, request, redirect, render_template, url_for
+from app.main.user import User
 
 app = Flask(__name__)
 
