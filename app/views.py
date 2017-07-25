@@ -29,6 +29,8 @@ def register():
     username = request.form['username']
     email = request.form['email']
     password =request.form['password']
+    new_user = User(username,email,password)
+    new_user.register_user(username,email,password)
 
     return redirect(url_for('login'))
 
