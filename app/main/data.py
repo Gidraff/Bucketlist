@@ -20,7 +20,7 @@ class Data(object):
             return True
 
     @staticmethod
-    def retrieve_data(_id):
+    def retrieve_data(_id, *args):
         """retrieves data specified"""
         all_data = []
         for data in args:
