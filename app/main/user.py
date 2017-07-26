@@ -1,13 +1,14 @@
 """modules and standard libraries to be used by User class"""
-
-
+import sys
 from uuid import uuid4
-from app.main.bucketlist import BucketList
-from app.main.data import Data
+print("system path",sys.path)
+from main.bucketlist import BucketList
+from main.data import Data
+
 
 class User(object):
     """User class that allows user to create, view, update and delete bucketlist"""
-    def __init__(self, user_name, email,password):
+    def __init__(self, user_name, email, password):
         self.user_name = user_name
         self.email = email
         self.password = password
@@ -15,7 +16,6 @@ class User(object):
 
     def create_bucketlist(self, title, description):
         """creates and saves user's bucketlist"""
-
         bucketlist = BucketList(title=title,
                                 description=description,
                                 created_by=self.user_name,
@@ -27,7 +27,8 @@ class User(object):
         """returns list of user's bucketlist"""
 
         all_bucketlist = [bucketlist_ for bucketlist_ in Data.bucketlists\
-         if bucketlist_id == bucketlist_['owner_id'] or bucketlist_id == bucketlist_['bucketlist_id']]
+         if bucketlist_id == bucketlist_['owner_id']\
+          or bucketlist_id == bucketlist_['bucketlist_id']]
         return all_bucketlist
 
     def update_bucketlist(self, title, description):
@@ -38,29 +39,24 @@ class User(object):
                 bucketlist['title'] = title
                 bucketlist['description'] = description
                 return True
-            else:
-                return False
 
     @staticmethod
     def verify_user(email):
         """checks whether user exists in the Data class"""
         email_checker = [mail['email'] for mail in Data.users if email == mail['email']]
         return "".join(email_checker) == email
-    
+
     @classmethod
     def register_user(cls, user_name, email, password):
+        """register user to Data.user"""
         does_exist = cls.verify_user(email)
         if does_exist is False:
             new_user = cls(user_name, email, password)
             new_user.save_users_info()
             return True
-        else:
-            return False
-
-
     def save_users_info(self):
         """save user's formation in Data.users as dictionary"""
-        new_user= {
+        new_user = {
             'username':self.user_name,
             'email':self.email,
             'password':self.password,
@@ -68,7 +64,15 @@ class User(object):
         }
         Data.users.append(new_user)
 
-    
-
-
-
+    @staticmethod
+    def create_activity(_id, activity):
+        """creates and saves user's activity"""
+        bucketlist_data = Data.retrieve_data(_id, Data.bucketlists)
+        for data  in bucketlist_data:
+            new_bucketlist = BucketList(
+                data['title'],
+                data['description'],
+                data['created_by'],
+                data['bucketlist_user_id']
+            )
+            new_bucketlist.create_activity(activity=activity)

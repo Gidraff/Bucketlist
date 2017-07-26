@@ -14,8 +14,6 @@ class Activity(object):
         self.date_created = datetime.datetime.utcnow
         self.activity_owner_id = activity_owner_id
         self._activity_id = uuid4()
-
-
     def save_activity_info(self):
         """save activity as a dictionary"""
         new_activity = {
@@ -26,3 +24,4 @@ class Activity(object):
             'id':self._activity_id
             }
         Data.activities.append(new_activity)
+

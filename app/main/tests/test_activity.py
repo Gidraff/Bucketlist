@@ -4,16 +4,16 @@ module and standard libraries imported for use in test activity class
 
 from unittest import TestCase
 from app.main.activity import Activity
+from app.main.data import Data
 
 class TestActivity(TestCase):
     """Activity class Tests"""
 
     def setUp(self):
-        activity = {
-            'activity':'surfing',
-            'created_by':'username',
-            'date_created':'12-12-2012',
-            'activity_owner':'1234',
-            'id':'4321'
-        }
-    
+        self.activity = Activity('surfing', 'username', '1234')
+        self.activity_data = Data
+        
+    def test_save_activity_info(self):
+        result = len(self.activity_data.activities)
+        self.activity.save_activity_info()
+        self.assertNotEqual(result, len(self.activity_data.activities))

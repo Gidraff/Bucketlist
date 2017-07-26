@@ -7,23 +7,23 @@
 <nav>
 
 	<ul>
-		<li><a href="">Home</a></li>
-		<li><a href="">About</a></li>
-		<li><a href="">Ask</a></li>
-		<li class="btn"><a href="">Create</a></li>
-		<li class="btn"><a href="">View</a></li>
-		<li class="btn"><a href="">Register</a></li>
+		<li><a href="{{ url_for('index') }}">Home</a></li>
+		<li><a href="{{ url_for('about') }}">About</a></li>
+		<li><a href="{{ url_for('ask') }}">Ask</a></li>
+		<li class="btn"><a href="{{ url_for('createbl') }}">Create</a></li>
+		<li class="btn"><a href="{{ url_for('dashboard') }}">View</a></li>s
+		<li class="btn"><a href="">Login</a></li>
 	</ul>
 </nav>
 <div class="login-div">
-	<form>
-		<label>Username:</label><br>
-		<input type="text" name=""><br>
+	<form action="/login" method='post'>
+		<label>email:</label><br>
+		<input type="text" name="user_email"><br>
 		<label>password:</label><br>
-		<input type="password" name=""><br>
+		<input type="password" name="user_password"><br>
 		<p><a href="">forgot password?</a></p>
 		<br>
-		<button class="btn1">login</button>
+		<input class="btn1" type="submit" value="login">
 
 	</form>
 </div>

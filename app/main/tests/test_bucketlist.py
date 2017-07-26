@@ -9,11 +9,11 @@ class TestBucketList(TestCase):
     def setUp(self):
         """this prepares test fixture"""
 
+        self.new_bucketlist = BucketList('bucket_title','am a bucket','username','1234')
         self.bucketlist_data = Data
+    def test_save_bucketlist_info(self):
+        """tests whether the bucketlist has been saved"""
 
-        self.bucketlist_one = {
-            'title':'jam view',
-            'description':'view city jam',
-            'created_by':'username',
-            'owner_id':'123456'
-        }
+        result = len(self.bucketlist_data.bucketlists)
+        self.new_bucketlist.save_bucketlist_info()
+        self.assertNotEqual(result, len(self.bucketlist_data.bucketlists))
