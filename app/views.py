@@ -22,15 +22,37 @@ def ask():
     """renders the ask page"""
     return render_template('ask.html')
 
-@app.route('/createbl')
+@app.route('/createbl', methods=['GET','POST'])
 def createbl():
     """renders the createbl page"""
+    title = request.form.get('title')
+    description = request.form.get('description')
+    if request.method == 'POST':
+        print('Session: ', session['username'])
+        for user in Data.users:
+            if user['email'] == session['user_email']:
+                user_ = User(user['username'],
+                                user['email'],
+                                user['password'],
+                                user['id'])
+
+                user_.create_bucketlist(title, description)
+        return redirect(url_for('dashboard'))
+
     return render_template('createbl.html')
 
 @app.route('/dashboard')
 def dashboard():
     """renders dashboard dashboard html"""
-    return render_template('dashboard.html')
+    current_user = None
+    for user in Data.users:
+        if user['email'] == session['user_email']:
+            print('User: ', user)
+            current_user = user
+    print('Current user: ', current_user)
+    user_bucketlist = Data.retrieve_data(current_user['id'], Data.bucketlists)
+    print(user_bucketlist)
+    return render_template('dashboard.html', user_bucketlist=user_bucketlist)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -53,14 +75,10 @@ def login():
         for user in Data.users:
             if user['email'] == user_email and user['password'] == password:
                 print(Data.users)  
-                session['username'] = user_email
+                session['user_email'] = user_email
                 return redirect(url_for('createbl'))
         flash('Invalid credentials')
     return render_template('login.html')
-
-
-
-
 
 if __name__ == '__main__':
     app.secret_key="secretkey4321"
