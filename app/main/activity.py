@@ -1,8 +1,7 @@
 """standard libraries and modules to be used by Activity class"""
 from uuid import uuid4
 import datetime
-from app.main.data import Data
-
+from main.data import Data
 
 class Activity(object):
     """Activity class"""
@@ -24,4 +23,5 @@ class Activity(object):
             'id':self._activity_id
             }
         Data.activities.append(new_activity)
+        
 

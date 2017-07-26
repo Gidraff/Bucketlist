@@ -11,9 +11,9 @@ class TestActivity(TestCase):
 
     def setUp(self):
         self.activity = Activity('surfing', 'username', '1234')
-        self.activity_data = Data
+        self.activity_data = Data.activities
         
     def test_save_activity_info(self):
-        result = len(self.activity_data.activities)
+        result = len(self.activity_data)
         self.activity.save_activity_info()
         self.assertNotEqual(result, len(self.activity_data.activities))

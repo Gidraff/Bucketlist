@@ -2,8 +2,8 @@
 
 import datetime
 from uuid import uuid4
-from app.main.activity import Activity
-from app.main.data import Data
+from main.activity import Activity
+from main.data import Data
 
 
 class BucketList(object):

@@ -19,9 +19,9 @@
 <div class="view-dash">
 <h1><i>BucketList Available </i></h1>
 	<ul class="list-group">
-		<li class="list-group-item">First BucketList</li>
-		<li class="list-group-item">Second BucketList</li>
-		<li class="list-group-item">Third BucketList</li>
+		{% for bucketlist in user_bucketlist %}
+			<li class="list-group-item">{{ bucketlist['title'] }} {{ bucketlist['description'] }}</li>
+		{% endfor %}
 	</ul>
 	<button class="btn1">Add BucketList</button>
 	<button class="btn1">Delete BucketList</button>

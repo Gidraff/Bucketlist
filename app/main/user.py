@@ -8,11 +8,11 @@ from main.data import Data
 
 class User(object):
     """User class that allows user to create, view, update and delete bucketlist"""
-    def __init__(self, user_name, email, password):
+    def __init__(self, user_name, email, password, _id=None):
         self.user_name = user_name
         self.email = email
         self.password = password
-        self._id = uuid4().hex
+        self._id = uuid4().hex if _id is None else _id
 
     def create_bucketlist(self, title, description):
         """creates and saves user's bucketlist"""
