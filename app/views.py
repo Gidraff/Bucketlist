@@ -46,7 +46,9 @@ def dashboard():
     for user in Data.users:
         if user['email'] == session['user_email']:
             current_user = user
+    print("Current user",current_user)
     bucketlists = Data.retrieve_data(current_user['id'])
+    print(bucketlists)
     return render_template('dashboard.html', bucketlists = bucketlists)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -74,6 +76,13 @@ def login():
                 return redirect(url_for('createbl'))
         flash('Invalid credentials')
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    """remove user email session if its there"""
+    session.pop('user_email', None)
+    return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.secret_key="secretkey4321"
