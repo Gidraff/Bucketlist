@@ -18,3 +18,9 @@ class Data(object):
         elif 'activity' in args:
             Data.activities.append(args)
             return True
+    @staticmethod
+    def retrieve_data(_id):
+        """method that retrieves data"""
+        for bucketlist in Data.bucketlists:
+            if _id == bucketlist['owner_id']:
+                return bucketlist
