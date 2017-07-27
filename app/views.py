@@ -38,7 +38,6 @@ def createbl():
 
                 user_.create_bucketlist(title, description)
         return redirect(url_for('dashboard'))
-
     return render_template('createbl.html')
 
 @app.route('/dashboard')
@@ -50,9 +49,9 @@ def dashboard():
             print('User: ', user)
             current_user = user
     print('Current user: ', current_user)
-    user_bucketlist = Data.retrieve_data(current_user['id'], Data.bucketlists)
-    print(user_bucketlist)
-    return render_template('dashboard.html', user_bucketlist=user_bucketlist)
+    bucketlists = Data.retrieve_data(current_user['id'])
+    print(bucketlists)
+    return render_template('dashboard.html', bucketlists = bucketlists)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
