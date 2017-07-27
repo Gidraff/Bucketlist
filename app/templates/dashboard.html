@@ -19,8 +19,8 @@
 <div class="view-dash">
 <h1><i>BucketList Available </i></h1>
 	<ul class="list-group">
-		{% for bucketlist in user_bucketlist %}
-			<li class="list-group-item">{{ bucketlist['title'] }} {{ bucketlist['description'] }}</li>
+		{% for bucketlist in bucketlists %}
+			<li class="list-group-item">{{ bucketlist['description'] }}</li>
 		{% endfor %}
 	</ul>
 	<button class="btn1">Add BucketList</button>
