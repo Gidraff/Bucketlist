@@ -28,7 +28,6 @@ def createbl():
     title = request.form.get('title')
     description = request.form.get('description')
     if request.method == 'POST':
-        print('Session: ', session['username'])
         for user in Data.users:
             if user['email'] == session['user_email']:
                 user_ = User(user['username'],
@@ -46,11 +45,8 @@ def dashboard():
     current_user = None
     for user in Data.users:
         if user['email'] == session['user_email']:
-            print('User: ', user)
             current_user = user
-    print('Current user: ', current_user)
     bucketlists = Data.retrieve_data(current_user['id'])
-    print(bucketlists)
     return render_template('dashboard.html', bucketlists = bucketlists)
 
 @app.route('/register', methods=['GET', 'POST'])
