@@ -17,15 +17,38 @@
 </nav>
 
 <div class="view-dash">
+	<h1>Bucketlist</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<td><b>Title</b></td>
+				<td><b>Description</b></td>
+				<td><b>Actions</b></td>
+			</tr>
+		</thead>
+		{% for bucketlist in bucketlists %}
+		<tbody>
+			<tr>
+				<td>{{ bucketlist['title'] }}</td>
+				<td>{{ bucketlist['description'] }}</td>
+				<td><input class="btn-danger" type="submit" value="Delete"></td>
+				<td><input class="btn-warning" type="submit" value="Edit"></td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+</div>
+
+<!-- <div class="view-dash">
 <h1><i>BucketList Available </i></h1>
 	<ul class="list-group">
 		{% for bucketlist in bucketlists %}
-			<li class="list-group-item">{{ bucketlist['description'] }}</li>
+			<li class="list-group-item">{{ bucketlist['title'] }}  {{ bucketlist['description'] }}</li>
 		{% endfor %}
 	</ul>
 	<button class="btn1">Add BucketList</button>
 	<button class="btn1">Delete BucketList</button>
-</div>
+</div> -->
 
 <footer>
 	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
