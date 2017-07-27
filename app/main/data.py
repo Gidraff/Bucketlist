@@ -21,6 +21,8 @@ class Data(object):
     @staticmethod
     def retrieve_data(_id):
         """method that retrieves data"""
+        buckelists = []
         for bucketlist in Data.bucketlists:
             if _id == bucketlist['owner_id']:
-                return bucketlist
+                buckelists.append(bucketlist)
+                return buckelists
