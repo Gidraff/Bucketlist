@@ -11,18 +11,17 @@ class Data(object):
         """method that saves all data"""
         if 'email' in args:
             Data.users.append(args)
-            return True
+            return Data.users
         elif 'title' in args:
             Data.bucketlists.append(args)
-            return True
+            return Data.bucketlists
         elif 'activity' in args:
             Data.activities.append(args)
-            return True
+            return Data.activities
     @staticmethod
     def retrieve_data(_id):
         """method that retrieves data"""
         buckelists = []
         for bucketlist in Data.bucketlists:
             if _id == bucketlist['owner_id']:
-                buckelists.append(bucketlist)
-                return buckelists
+                return Data.bucketlists
