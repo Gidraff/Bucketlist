@@ -29,7 +29,6 @@ class BucketList(object):
         activity.save_activity_info()
     def save_bucketlist_info(self):
         """save bucketlist as a dictionary"""
-
         new_bucketlist = {
             'title': self.title,
             'description': self.description,
@@ -37,5 +36,4 @@ class BucketList(object):
             'date_created': self.date_created,
             'owner_id': self.bucketlist_user_id
             }
-
         Data.save_data(new_bucketlist)

@@ -22,64 +22,66 @@ def ask():
     """renders the ask page"""
     return render_template('ask.html')
 
-@app.route('/createbl', methods=['GET','POST'])
+@app.route('/createbl', methods=['GET', 'POST'])
 def createbl():
     """renders the createbl page"""
     title = request.form.get('title')
     description = request.form.get('description')
     if request.method == 'POST':
-        print('Session: ', session['username'])
         for user in Data.users:
             if user['email'] == session['user_email']:
                 user_ = User(user['username'],
-                                user['email'],
-                                user['password'],
-                                user['id'])
-
+                             user['email'],
+                             user['password'],
+                             user['id'])
                 user_.create_bucketlist(title, description)
-        return redirect(url_for('dashboard'))
-
+            return redirect(url_for('dashboard'))
     return render_template('createbl.html')
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET'])
 def dashboard():
     """renders dashboard dashboard html"""
     current_user = None
     for user in Data.users:
         if user['email'] == session['user_email']:
-            print('User: ', user)
             current_user = user
-    print('Current user: ', current_user)
-    user_bucketlist = Data.retrieve_data(current_user['id'], Data.bucketlists)
-    print(user_bucketlist)
-    return render_template('dashboard.html', user_bucketlist=user_bucketlist)
+    bucketlists = Data.retrieve_data(current_user['id'])
+    return render_template('dashboard.html', bucketlists=bucketlists)
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET','POST'])
 def register():
     """register users information"""
+
     username = request.form.get('username')
     email = request.form.get('email')
-    password =request.form.get('password')
+    password = request.form.get('password')
     if request.method == 'POST':
-        if User.register_user(username,email,password):
-             return redirect(url_for('login'))
+        if User.register_user(username, email, password):
+            return redirect(url_for('login'))
     else:
         return render_template('register.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
     """verifies and login user """
     if request.method == 'POST':
         user_email = request.form.get('user_email')
         password = request.form.get('user_password')
         for user in Data.users:
-            if user['email'] == user_email and user['password'] == password:
-                print(Data.users)  
+            if user['email'] == user_email and\
+             user['password'] == password:
                 session['user_email'] = user_email
                 return redirect(url_for('createbl'))
         flash('Invalid credentials')
     return render_template('login.html')
 
+@app.route('/logout')
+def logout():
+    """remove user email session if its there"""
+    session.pop('user_email', None)
+    return redirect(url_for('login'))
+
+
 if __name__ == '__main__':
-    app.secret_key="secretkey4321"
+    app.secret_key = "secretkey4321"
     app.run(debug=True)

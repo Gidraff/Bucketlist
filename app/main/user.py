@@ -25,7 +25,6 @@ class User(object):
     @staticmethod
     def view_bucketlist(bucketlist_id):
         """returns list of user's bucketlist"""
-
         all_bucketlist = [bucketlist_ for bucketlist_ in Data.bucketlists\
          if bucketlist_id == bucketlist_['owner_id']\
           or bucketlist_id == bucketlist_['bucketlist_id']]
@@ -67,7 +66,7 @@ class User(object):
     @staticmethod
     def create_activity(_id, activity):
         """creates and saves user's activity"""
-        bucketlist_data = Data.retrieve_data(_id, Data.bucketlists)
+        bucketlist_data = Data.retrieve_data(_id)
         for data  in bucketlist_data:
             new_bucketlist = BucketList(
                 data['title'],

@@ -8,23 +8,46 @@
 <nav>
 
 	<ul>
-		<li><a href="">Home</a></li>
-		<li><a href="">About</a></li>
-		<li><a href="">Ask</a></li>
-		<li class="btn"><a href="">Create</a></li>
-		<li class="btn"><a href="">Log Out</a></li>
+		<li><a href="/index">Home</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a href="/ask">Ask</a></li>
+		<li class="btn"><a href="/createbl">Create</a></li>
+		<li class="btn"><a href="/logout">log Out</a></li>
 	</ul>
 </nav>
 
 <div class="view-dash">
-<h1><i>BucketList Available </i></h1>
-	<ul class="list-group">
-		{% for bucketlist in user_bucketlist %}
-			<li class="list-group-item">{{ bucketlist['title'] }} {{ bucketlist['description'] }}</li>
-		{% endfor %}
-	</ul>
-	<button class="btn1">Add BucketList</button>
-	<button class="btn1">Delete BucketList</button>
+	<h1>Bucketlist</h1>
+	{% if bucketlists %}
+	<table class="table">
+		<thead>
+			<tr>
+				<td><b>Title</b></td>
+				<td><b>Description</b></td>
+				<td><b>Actions</b></td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+				{% for bucketlist in bucketlists %}
+				<tr>
+					
+					<td>{{ bucketlist['title'] }}</td>
+					<td>{{ bucketlist['description'] }}</td>
+					<td><input class="btn-danger" type="submit" value="Delete"></td>
+					<td><input class="btn-warning" type="submit" value="Edit"></td>
+					
+				</tr>
+				{% endfor %}
+			
+			
+		</tbody>
+		
+	</table>
+	{% else %}
+			No bucjetlist, add one
+	{% endif %}
 </div>
 
 <footer>
