@@ -18,6 +18,7 @@
 
 <div class="view-dash">
 	<h1>Bucketlist</h1>
+	{% if bucketlists %}
 	<table class="table">
 		<thead>
 			<tr>
@@ -26,17 +27,27 @@
 				<td><b>Actions</b></td>
 			</tr>
 		</thead>
-		{% for bucketlist in bucketlists %}
+		
 		<tbody>
-			<tr>
-				<td>{{ bucketlist['title'] }}</td>
-				<td>{{ bucketlist['description'] }}</td>
-				<td><input class="btn-danger" type="submit" value="Delete"></td>
-				<td><input class="btn-warning" type="submit" value="Edit"></td>
-			</tr>
+			
+				{% for bucketlist in bucketlists %}
+				<tr>
+					
+					<td>{{ bucketlist['title'] }}</td>
+					<td>{{ bucketlist['description'] }}</td>
+					<td><input class="btn-danger" type="submit" value="Delete"></td>
+					<td><input class="btn-warning" type="submit" value="Edit"></td>
+					
+				</tr>
+				{% endfor %}
+			
+			
 		</tbody>
-		{% endfor %}
+		
 	</table>
+	{% else %}
+			No bucjetlist, add one
+	{% endif %}
 </div>
 
 <footer>
