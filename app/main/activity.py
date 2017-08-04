@@ -24,4 +24,3 @@ class Activity(object):
             }
         Data.activities.append(new_activity)
         
-
