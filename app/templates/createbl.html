@@ -1,33 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../static/main.css">
-</head>
-<body>
-<nav>
-
-	<ul>
-		<li><a href="/index">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/ask">Ask</a></li>
-		<li class="btn"><a href="/dashboard">View</a></li>
-		<li class="btn"><a href="/logout">log Out</a></li>
-	</ul>
-</nav>
+{% extends "layout.html" %}
+{% block title %}Create Bucketlist{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
 <div class="create-div">
-	<form action="/createbl" method="post">
+	<form>
 		<h2><i>How would you like to create your bucketlist?</i></h2>
 		<label for="name">Title</label><br>
-		<input type="text" name="title"><br>
+		<input type="text" name="name"><br>
 		<br>
 		<caption>Description</caption><br>
-		<textarea name="description" cols="70" rows="0"></textarea>
+		<textarea name="Description" cols="70" rows="10"></textarea>
 		<br>
-		<input class="btn1" type="submit" value="Create">
+		<button class="btn1">Submit BucketList</button>
 	</form>
 </div>
-<footer>
-	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
-</footer>
-</body>
-</html>
+{% endblock %}

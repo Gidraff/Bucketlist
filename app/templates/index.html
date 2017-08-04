@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../static/main.css">
-</head>
-<body>
-<nav>
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+	<div class="div-main">
 
-	<ul>
-		<li><a href="">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/ask">Ask</a></li>
-		<li class="btn"><a href="/login">Login</a></li>
-		<li class="btn"><a href="/register">Register</a></li>
-	</ul>
-</nav>
-
-<div class="div-main">
-	
-</span>
-</div>
-
-<footer>
-	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
-</footer>
-</body>
-</html>
+	</div>
+{% endblock %}

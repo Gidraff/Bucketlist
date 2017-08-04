@@ -1,57 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../static/main.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
-<body>
-<nav>
+{% extends "layout.html" %}
+{% block title %}DashBoard{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
 
-	<ul>
-		<li><a href="/index">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/ask">Ask</a></li>
-		<li class="btn"><a href="/createbl">Create</a></li>
-		<li class="btn"><a href="/logout">log Out</a></li>
-	</ul>
-</nav>
-
+{% block content %}
 <div class="view-dash">
-	<h1>Bucketlist</h1>
-	{% if bucketlists %}
-	<table class="table">
-		<thead>
-			<tr>
-				<td><b>Title</b></td>
-				<td><b>Description</b></td>
-				<td><b>Actions</b></td>
-			</tr>
-		</thead>
-		
-		<tbody>
-			
-				{% for bucketlist in bucketlists %}
-				<tr>
-					
-					<td>{{ bucketlist['title'] }}</td>
-					<td>{{ bucketlist['description'] }}</td>
-					<td><input class="btn-danger" type="submit" value="Delete"></td>
-					<td><input class="btn-warning" type="submit" value="Edit"></td>
-					
-				</tr>
-				{% endfor %}
-			
-			
-		</tbody>
-		
-	</table>
-	{% else %}
-			No bucjetlist, add one
-	{% endif %}
+	<h1><i>BucketList Available </i></h1>
+	<ul class="list-group">
+		<li class="list-group-item">First BucketList</li>
+		<li class="list-group-item">Second BucketList</li>
+		<li class="list-group-item">Third BucketList</li>
+	</ul>
+	<button class="btn1">Add BucketList</button>
+	<button class="btn1">Delete BucketList</button>
 </div>
-
-<footer>
-	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
-</footer>
-</body>
-</html>
+{% endblock %}

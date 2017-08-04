@@ -1,34 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../static/main.css">
-</head>
-<body>
-<nav>
-
-	<ul>
-		<li><a href="{{ url_for('index') }}">Home</a></li>
-		<li><a href="{{ url_for('about') }}">About</a></li>
-		<li><a href="{{ url_for('ask') }}">Ask</a></li>
-		<li class="btn"><a href="/register">Register</a></li>
-	</ul>
-</nav>
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
 <div class="login-div">
-	<form action="/login" method='post'>
-		<label>email:</label><br>
-		<input type="text" name="user_email"><br>
+	<form>
+		<label>Username:</label><br>
+		<input type="text" name=""><br>
 		<label>password:</label><br>
-		<input type="password" name="user_password"><br>
+		<input type="password" name=""><br>
 		<p><a href="">forgot password?</a></p>
 		<br>
-		<input class="btn1" type="submit" value="login">
-
+		<button class="btn1">login</button>
 	</form>
 </div>
-
-<footer>
-	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
-</footer>
-</body>
-</body>
-</html>
+{% endblock %}
