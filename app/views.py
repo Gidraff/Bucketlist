@@ -7,6 +7,46 @@ from main.data import Data
 app = Flask(__name__)
 
 @app.route('/')
+
+class RegisterForm(Form):
+    username = StringField('Username', [validators.Length(min=1, max=50)])
+    email = StringField('Email', [validators.Length(min=4, max=25)])
+    password = PasswordField('password', [
+        validators.DataRequired(), validators.EqualTo('confirm', message='password do not match')])
+    confirm = PasswordField('confirm password')
+
+@app.route('/register', methods=['GET','POST'])
+def register():
+    """register users information"""
+
+    username = request.form.get('username')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    if request.method == 'POST':
+        if User.register_user(username, email, password):
+            return redirect(url_for('login'))
+    else:
+        return render_template('register.html')
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    """verifies and login user """
+    user_email = request.form.get('user_email')
+    password = request.form.get('user_password')
+    if request.method == 'POST':
+        for user in Data.users:
+            if user['email'] == user_email and\
+             user['password'] == password:
+                session['user_email'] = user_email
+                return redirect(url_for('createbl'))
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    """remove user email session if its there"""
+    session.pop('user_email', None)
+    return redirect(url_for('login'))
+
 @app.route('/index')
 def index():
     """renders the index page"""
@@ -21,6 +61,11 @@ def about():
 def ask():
     """renders the ask page"""
     return render_template('ask.html')
+
+
+class CreateBucketlist(Form):
+    title = StringField('Title', [validators.Length(min=5, max= 100)])
+    description = StringField('Description', [validators.Length(min=10)])
 
 @app.route('/createbl', methods=['GET', 'POST'])
 def createbl():
@@ -47,39 +92,6 @@ def dashboard():
             current_user = user
     bucketlists = Data.retrieve_data(current_user['id'])
     return render_template('dashboard.html', bucketlists=bucketlists)
-
-@app.route('/register', methods=['GET','POST'])
-def register():
-    """register users information"""
-
-    username = request.form.get('username')
-    email = request.form.get('email')
-    password = request.form.get('password')
-    if request.method == 'POST':
-        if User.register_user(username, email, password):
-            return redirect(url_for('login'))
-    else:
-        return render_template('register.html')
-
-@app.route('/login', methods=['GET','POST'])
-def login():
-    """verifies and login user """
-    if request.method == 'POST':
-        user_email = request.form.get('user_email')
-        password = request.form.get('user_password')
-        for user in Data.users:
-            if user['email'] == user_email and\
-             user['password'] == password:
-                session['user_email'] = user_email
-                return redirect(url_for('createbl'))
-        flash('Invalid credentials')
-    return render_template('login.html')
-
-@app.route('/logout')
-def logout():
-    """remove user email session if its there"""
-    session.pop('user_email', None)
-    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
