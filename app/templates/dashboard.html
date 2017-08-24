@@ -6,13 +6,40 @@
 
 {% block content %}
 <div class="view-dash">
-	<h1><i>BucketList Available </i></h1>
-	<ul class="list-group">
-		<li class="list-group-item">First BucketList</li>
-		<li class="list-group-item">Second BucketList</li>
-		<li class="list-group-item">Third BucketList</li>
-	</ul>
-	<button class="btn1">Add BucketList</button>
-	<button class="btn1">Delete BucketList</button>
+	<h1>This is a Dashboard</h1>
+	{% if bucketlists %}
+	<table>
+		<thead>
+			<tr>
+				<td><b>Title</b></td><br><br>
+				<td><b>Description</b></td>
+				<td><b>Actions</b></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bucket in bucketlists.values() %}
+			<tr>
+				<td>{{ bucket.title }}</td>
+				<td> {{ bucket.description }}</td>
+				<td>
+					<form action="{{ url_for('delete_bucketlist', id=bucket.id ) }}" method="post">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+				<td>
+					<form action="/edit_bucketlist/{{ bucket.id }}" method="get">
+						<input type="submit" value="Edit">
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+		<a href="/createbl"><button>Add</button></a>
+		</tbody>	
+	</table>
+	{% else %}
+		No bucketlist available
+		<a href="/createbl"><button>Add</button></a>
+
+	{% endif %}
 </div>
 {% endblock %}
