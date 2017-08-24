@@ -1,18 +1,14 @@
 {% extends "layout.html" %}
 {% block title %}Login{% endblock %}
-{% block head %}
-{{ super() }}
-{% endblock %}
 {% block content %}
+{% from "include/_formhelpers.html" import render_field %}
 <div class="login-div">
-	<form>
-		<label>Username:</label><br>
-		<input type="text" name=""><br>
-		<label>password:</label><br>
-		<input type="password" name=""><br>
-		<p><a href="">forgot password?</a></p>
-		<br>
-		<button class="btn1">login</button>
-	</form>
+		<form method='post' action="/login">
+				<div> 
+					{{ render_field(form.email) }}
+					{{ render_field(form.password) }}
+					<dd class="submit-btn"><input class="btn1" type="submit" value="Log in"></dd>
+				</div>
+		</form>
 </div>
 {% endblock %}
