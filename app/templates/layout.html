@@ -7,14 +7,37 @@
         {% endblock %}
     </head>
     <body>
-        {% includes 'include/_navbar.html' %}
+        <nav "base-class">
+            <ul>
+                {% if session['logged_in'] %}
+                
+                    {% for href, caption in[
+                        ('/index', 'Home'), ('/logout', 'Log out'),
+                        ('/createbl', 'create'), ('/dashboard', 'Dashboard')] %}
+                    <li>
+                        <a href="{{ href }}">{{ caption }}</a>
+                    </li>
+                    {% endfor %}
+                
+                {% elif not session['logged_in'] %}
+                
+                    {% for href, caption in[('/index', 'Home'), ('/register', 'Register'),
+                                    ('/login', 'Log in')] %}
+                    <li>
+                    <a href="{{ href }}">{{ caption }}</a>
+                    </li>
+                    {% endfor %}    
+
+                {% endif %}
+            </ul>
+        </nav>
         <div id="content">
             {% block content %}
             {% endblock %}
         </div>
         <div id="footer">
         {% block footer %}
-        &copy; Copyright 2017 by Gidraff Karanja.
+        {% include "include/_footer.html"%}
         {% endblock %}
         </div>
     </body>
