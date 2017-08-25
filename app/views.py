@@ -29,7 +29,7 @@ def register():
     if request.method == "POST" and form.validate():
         user = User(form.username.data, form.email.data, form.password.data)
         users.append(user)
-        return redirect(url_for('createbl'))
+        return redirect(url_for('create_bucketlist'))
     return render_template('register.html', form=form)
 
 class LoginForm(Form):
@@ -57,7 +57,7 @@ def login():
             if user.email == form.email.data and\
              user.password == form.password.data:
                 session['logged_in'] = user.email
-                return redirect(url_for('createbl'))
+                return redirect(url_for('create_bucketlist'))
     return render_template('login.html', form=form)
 
 class CreateBucketlist(Form):
