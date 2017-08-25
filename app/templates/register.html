@@ -1,42 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../static/main.css">
-</head>
-<body>
-<nav>
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% from "include/_formhelpers.html" import render_field %}
+	<div class="reg-div">
+				<form method="post" action=" ">
+					<h2>Register</h2>
+					<fieldset>
+							{{ render_field(form.username) }} 
+							{{ render_field(form.email) }}
+							{{ render_field(form.password) }}
+							{{ render_field(form.confirm) }}
+						<dd class="submit-btn"><input class="btn1" type="submit" value="Register"></dd>
+					</fieldset>
+				</form>
+	</div>
+{% endblock %}
 
-	<ul>
-		<li><a href="{{ url_for('index') }}">Home</a></li>
-		<li><a href="{{ url_for('about') }}">About</a></li>
-		<li><a href="{{ url_for('ask') }}">Ask</a></li>
-		<li class="btn"><a href="{{ url_for('createbl') }}">Create</a></li>
-		<li class="btn"><a href="{{ url_for('dashboard') }}">View</a></li>s
-		<li class="btn"><a href="{{ url_for('login') }}">Login</a></li>
-	</ul>
-</nav>
 
 
-<div class="reg-div">
-	<form action="/register" method="post">
-		<label>username</label><br>
-		<input type="text" name="username" ><br>
-		<label>email</label><br>
-		<input type="email" name="email"><br>
+
+
+
+
+
+
+		<!-- <label>First Name</label><br>
+		<input type="text" name=""><br>
+		<label>Last  Name</label><br>
+		<input type="text" name=""><br>
 		<label>Password </label><br>
 		<input type="password" name="password"><br>
 		<label>Confirm password</label><br>
-		<input type="password" name="confirm_password"><br>
-		<input class="btn1" type="submit" name="Register" >
-	</form>
-</div>
-
-
-
-
-
-<footer>
-	<p>Copyright &copy; 2017 <br>Created by Gidraff Karanja</p>
-</footer>
-</body>
-</html>
+		<input type="password" name=""><br>
+		<p><i>already have an account?</i><a href="">login</a></p>
+		<button class="btn1">Register</button> -->

@@ -2,8 +2,17 @@ nav {
 	background-color: grey;
 	border-radius: 3px;
 	padding: 5px;
+	width: 100%;
 	text-align: center;
 
+}
+
+body {
+	width: 100%;
+}
+
+.base-class {
+	float:right;
 }
 
 .btn {
@@ -19,6 +28,10 @@ nav {
 	color: white;
 	padding: 15px;
 	border-radius: 5px;
+}
+
+.submit-btn {
+	margin-top: 1%;
 }
 
 nav ul {
@@ -83,7 +96,7 @@ nav ul li a {
 	width: 20%;
 	padding: 10px;
 	border-radius: 5px;
-	box-shadow: 
+	box-shadow:rosybrown; 
 }
 
 
@@ -142,10 +155,11 @@ nav ul li a {
 
 footer  {
 	background-color: #4d4d4d;
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	left: 0%;
 	border-radius: 3px;
 	text-align: center;
-}
-
-footer p {
-	padding: 25px 0 25px 0;
+	padding: 50px 0px 50px 0px!important;
 }

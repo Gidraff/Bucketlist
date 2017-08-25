@@ -1,7 +1,9 @@
-venv/
+myenv/
+.vscode/
 flask_venv/
 myenv/
 .vscode/
 *.pyc
 .DS_Store
+*.DS_Store/
 *__pycache__/
