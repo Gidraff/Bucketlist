@@ -1,7 +1,7 @@
 """modules and standard libraries to be used by Bucketlist classs """
 
 from uuid import uuid4
-from main.activity import Activity
+from .activity import Activity
 
 class BucketList(object):
     """bucketlist class"""
@@ -18,10 +18,11 @@ class BucketList(object):
         """creates and add activity to dictionary"""
         new_activity = Activity(activity)
         self.activities[new_activity.id] = new_activity
+        return new_activity.id
 
     def edit_acivity(self, id, new_activity):
         """update or edit existing activity"""
-        for key in self.activities.copy().keys:
+        for key in self.activities.copy().keys():
             if id == key:
                 self.activities[key].activity = new_activity
 
