@@ -64,7 +64,7 @@ class CreateBucketlist(Form):
     title = StringField('Title')
     description = StringField('Description')
 
-@app.route('/createbl', methods=['GET', 'POST'])
+@app.route('/create_bucketlist', methods=['GET', 'POST'])
 @login_required
 def create_bucketlist():
     """renders the createbl page"""
