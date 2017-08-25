@@ -1,6 +1,6 @@
 """modules and standard libraries to be used by User class"""
 
-from main.bucketlist import BucketList
+from .bucketlist import BucketList
 
 class User(object):
     """user class"""
@@ -17,6 +17,7 @@ class User(object):
         """create and add bucketlist to dictionary"""
         new_bucketlist = BucketList(title, description)
         self.bucketlists[new_bucketlist.id] = new_bucketlist
+        return new_bucketlist.id
 
     def update_bucketlist(self, id, title, description):
         """update or edit the existing bucketlist"""
