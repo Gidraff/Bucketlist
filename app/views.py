@@ -66,7 +66,7 @@ class CreateBucketlist(Form):
 
 @app.route('/createbl', methods=['GET', 'POST'])
 @login_required
-def createbl():
+def create_bucketlist():
     """renders the createbl page"""
     if not session['logged_in']:
         return redirect(url_for('login'))
@@ -78,17 +78,15 @@ def createbl():
                 return redirect(url_for('dashboard'))
             else:
                 return redirect(url_for('login'))
-    return render_template('createbl.html', form=form)
+    return render_template('create_bucketlist.html', form=form)
 
 @app.route('/dashboard', methods=['GET'])
 @login_required
 def dashboard():
     """renders dashboard dashboard html"""
-    print("users>>",users, users[0].bucketlists , users[0].email , session['user_email'])
     for user in users:
         if user.email == session['logged_in']:
             bucketlists = user.bucketlists
-            print("this is buck>>>",bucketlists)
             return render_template('dashboard.html', bucketlists=bucketlists)
     return redirect(url_for('login'))
 
