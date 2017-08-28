@@ -5,9 +5,13 @@
 <div class="login-div">
 				<form method='post' action="/login">
 					<h3>Login</h3>
+					{% for message in get_flashed_messages() %}
+					<div class="flash">{{ message }}</div>
+					{% endfor %}
 					<fieldset >
 					{{ render_field(form.email) }}
 					{{ render_field(form.password) }}
+
 					<dd class="submit-btn"><input class="btn1" type="submit" value="Log in"></dd>
 				</fieldset>
 		</form>
