@@ -20,8 +20,8 @@
 				<tbody>
 				{% for bucket in bucketlists.values() %}
 					<tr>
-						<td><a class="anchor" href="/activity_dashboard">{{ bucket.title }}</a></td>
-						<td><a class="anchor" href="/activity_dashboard">{{ bucket.description }}</a></td>
+						<td><a class="anchor" href="{{ url_for('activity_dashboard')}}">{{ bucket.title }}</a></td>
+						<td><a class="anchor" href="">{{ bucket.description }}</a></td>
 						<td>
 							<form action="/edit_bucketlist/{{ bucket.id }}" method="get">
 								<input class="btn-warning" type="submit" value="Edit">
@@ -44,7 +44,7 @@
 			</table>
 			{% else %}
 				No bucketlist available
-				<a href="/create_bucketlist"><button>Add</button></a>
+				<a href="/create_bucketlist"><button class="btn">Add</button></a>
 		
 			{% endif %}
 	</div>
