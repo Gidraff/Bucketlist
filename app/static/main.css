@@ -7,8 +7,16 @@ nav {
 
 }
 
+.logo {
+	padding-top: 0;
+	text-align: left;
+	clear: both;
+}
+
 body {
 	width: 100%;
+	padding: 0px;
+	margin: 0px;
 }
 
 .base-class {
@@ -35,8 +43,8 @@ body {
 }
 
 nav ul {
-	padding: 0;
-	text-align: left;
+	padding-bottom: 0;
+	text-align: right;
 }
 
 nav ul p {
@@ -46,7 +54,7 @@ nav ul p {
 }
 nav ul li {
 	display: inline-block;
-	padding: 5px;
+	padding: 0;
 
 }
 
@@ -54,7 +62,7 @@ nav ul li a {
 	
 	text-decoration: none;
 	color: #f6f6f6;
-	padding: 5px;
+	padding:0 5px 0 5px;
 	border-radius: 5px;
 
 }
@@ -76,7 +84,7 @@ nav ul li a {
 
 .reg-div {
 	text-align: center;
-	margin: 0 20px 0 20px;
+	margin: 7% 20% 7% 20%;
 }
 
 .reg-div form {
@@ -99,6 +107,19 @@ nav ul li a {
 	box-shadow:rosybrown; 
 }
 
+.deep-div {
+	padding: 4%;
+	background-color: bisque;
+	text-align: center;
+}
+
+table td {
+	padding: 4px;
+}
+
+table {
+	padding-left: 35%;
+	}
 
 
 .login-div {
