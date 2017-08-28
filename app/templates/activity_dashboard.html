@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}DashBoard{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="view-dash">
+	<h1>This is Activity Dashboard</h1>
+	{% if bucketlists %}
+	<table>
+		
+		<tbody>
+		{% for bucket in bucketlists.values() %}
+		{% set id = bucket.id %}
+		<h2>Bucketlist: {{ bucket.title}}</h2>
+		<form action="{{url_for('add_activity', id=id )}}" method="get">
+				<input class="btn1" type="submit" value="Add" >
+		</form>
+		<ul>
+			{% for activity in bucketlists[id].activities.values() %}
+				<li>{{ activity.activity }} 		
+					<form action="{{url_for('edit_activity', id=activity.id, bucketlist_id=bucket.id )}}"
+					 method="get">
+							<input type="submit" value="Edit" >
+					</form>
+					<form action="{{url_for('delete_activity', id=activity.id, bucketlist_id=bucket.id )}}" method="get">
+							<input type="submit" value="Delete" >
+					</form>
+				</li>
+			{% endfor %}
+		</ul>
+			{% endfor %}
+		</tbody>	
+	</table>
+	{% else %}
+		No activities available
+		<a href="/add_activity"><button>Add</button></a>
+
+	{% endif %}
+</div>
+{% endblock %}
