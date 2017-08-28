@@ -172,7 +172,7 @@ def activity_dashboard():
 
 class EditActivity(Form):
     """create form input fields for edit"""
-    new_activity = StringField('New Activity')
+    new_activity = StringField('New Activity', [validators.DataRequired()])
 
 @app.route('/edit_activity/<bucketlist_id>/<id>', methods=['GET', 'POST'])
 @login_required
