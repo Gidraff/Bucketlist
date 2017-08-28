@@ -1,13 +1,14 @@
 """modules and packages to be imported"""
-from flask import Flask, request, redirect, render_template, url_for, flash, session
+from flask import request, redirect, render_template, url_for, flash, session
 from wtforms import Form, StringField, PasswordField, TextField, validators
 from functools import  wraps
+from app import app
 from .main.user import User
 
 users = []
 
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 class RegisterForm(Form):
     """ create form input fields for register"""
