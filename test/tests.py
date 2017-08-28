@@ -9,7 +9,10 @@ class TestBucketList(TestCase):
     """Main BucketList Test class"""
     def setUp(self):
         """Sets up test fixture"""
-        self.new_bucketlist = BucketList('bucket_title', 'am a bucket')
+        self.new_bucketlist = BucketList(
+                                        'bucket_title',
+                                         'am a bucket'
+                                         )
     def test_add_activity(self):
         """Test whether an activity has been saved"""
         before_add = len(self.new_bucketlist.activities)
@@ -21,7 +24,10 @@ class TestBucketList(TestCase):
         "Test whether  an activity has been edited"
         id = self.new_bucketlist.add_activity('this is cool')
         self.new_bucketlist.edit_acivity(id, 'this is awesome')
-        self.assertEqual(self.new_bucketlist.activities[id].activity, 'this is awesome')
+        self.assertEqual(
+            self.new_bucketlist.activities[id].activity,
+             'this is awesome'
+             )
 
     def test_delete_activity(self):
         """Test whether an activity has been deleted"""
@@ -41,16 +47,26 @@ class TestUser(TestCase):
     def test_create_bucketlist(self):
         """Test whether bucketlist has been  created"""
         result = len(self.new_user.bucketlists)
-        self.new_user.create_bucketlist('this is new', 'new bucketlist')
+        self.new_user.create_bucketlist('this is new',
+                                        'new bucketlist'
+                                        )
         after_add = len(self.new_user.bucketlists)
         self.assertEqual(after_add - result, 1)
 
     def test_update_bucketlist(self):
         """Test whether bucketlist has been edited"""
-        id = self.new_user.create_bucketlist('this is another', 'yet another')
-        self.new_user.update_bucketlist(id, 'this work', 'yes it does')
-        self.assertEqual(self.new_user.bucketlists[id].title, 'this work')
-        self.assertEqual(self.new_user.bucketlists[id].description, 'yes it does')
+        id = self.new_user.create_bucketlist('this is another',
+                                             'yet another'
+                                             )
+        self.new_user.update_bucketlist(
+                                        id, 'this work',
+                                         'yes it does'
+                                         )
+        self.assertEqual(self.new_user.bucketlists[id].title,
+                         'this work'
+                         )
+        self.assertEqual(self.new_user.bucketlists[id].description,
+                         'yes it does')
         
     def test_delete_bucketlist(self):
         """Test whether  bucketlist has been deleted"""
