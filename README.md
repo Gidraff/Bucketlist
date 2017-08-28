@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Gidraff/Bucketlist.svg?branch=master)](https://travis-ci.org/Gidraff/Bucketlist)
+
 # Bucketlist App
 
 ## Introduction

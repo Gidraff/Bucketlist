@@ -20,7 +20,7 @@ class BucketList(object):
         self.activities[new_activity.id] = new_activity
         return new_activity.id
 
-    def edit_acivity(self, id, new_activity):
+    def edit_activity(self, id, new_activity):
         """update or edit existing activity"""
         for key in self.activities.copy().keys():
             if id == key:
