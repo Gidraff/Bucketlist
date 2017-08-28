@@ -47,8 +47,7 @@ class LoginForm(Form):
     email = TextField('Email address', [
         validators.DataRequired(), validators.Email()])
     password = PasswordField('password',
-                             [validators.DataRequired(),
-                              validators.Length(min=6, max=25)
+                             [validators.DataRequired()
                             ])
 
 def login_required(f):
@@ -65,13 +64,17 @@ def login_required(f):
 def login():
     """verifies and login user """
     form = LoginForm(request.form)
+    error = None
     if request.method == 'POST' and form.validate():
         for user in users:
             if user.email == form.email.data and\
              user.password == form.password.data:
                 session['logged_in'] = user.email
                 return redirect(url_for('create_bucketlist'))
-    return render_template('login.html', form=form)
+            else:
+                flash("Invalid credentials")
+                error = "Invalid credentials"
+    return render_template('login.html', form=form, error=error)
 
 class CreateBucketlist(Form):
     """create form input for bucketlist"""
@@ -121,7 +124,7 @@ def delete_bucketlist(id):
 class EditBucketlist(Form):
     """create form input fields for edit"""
     title = StringField('new title' , [validators.DataRequired()])
-    description = StringField('new description')
+    description = StringField('new description', [validators.DataRequired()])
 
 @app.route('/edit_bucketlist/<id>', methods=['GET', 'POST'])
 @login_required
@@ -140,7 +143,7 @@ def edit_bucketlist(id):
 
 class AddActivity(Form):
     """creates form input field for adding activity"""
-    activity = StringField('Activity')
+    activity = StringField('Activity', [validators.DataRequired()])
 
 @app.route('/add_activity/<id>', methods=['GET', 'POST'])
 @login_required
