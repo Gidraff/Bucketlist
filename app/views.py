@@ -2,7 +2,7 @@
 from flask import Flask, request, redirect, render_template, url_for, flash, session
 from wtforms import Form, StringField, PasswordField, TextField, validators
 from functools import  wraps
-from main.user import User
+from .main.user import User
 
 users = []
 
@@ -210,6 +210,4 @@ def logout():
     return redirect(url_for('login'))
 
 
-if __name__ == '__main__':
-    app.secret_key = "secretkey4321"
-    app.run(debug=True)
+
