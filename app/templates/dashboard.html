@@ -24,23 +24,22 @@
 						<td><a class="anchor" href="/activity_dashboard">{{ bucket.description }}</a></td>
 						<td>
 							<form action="/edit_bucketlist/{{ bucket.id }}" method="get">
-								<input type="submit" value="Edit">
+								<input class="btn-warning" type="submit" value="Edit">
 							</form>
 						</td>
 		
 						<td>
 							<form action="{{ url_for('delete_bucketlist', id=bucket.id ) }}" method="post">
-								<input type="submit" value="Delete">
+								<input class="btn-danger" type="submit" value="Delete">
 							</form>
 						</td>
 						<td>
 							<form action="{{ url_for('add_activity', id=bucket.id ) }}" method="get">
-								<input type="submit" value="Add">
+								<input class="btn" type="submit" value="Add">
 							</form>
 						</td>
 					</tr>
 				{% endfor %}
-				<a href="/create_bucketlist"><button>Add</button></a>
 				</tbody>	
 			</table>
 			{% else %}
