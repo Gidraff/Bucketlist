@@ -82,6 +82,12 @@ nav ul li a {
 
 }
 
+.flash {
+	color: red;
+	padding: 10px;
+	width: 400px;
+  }
+
 .div-main {
 	color: #b30000;
 	text-align: center;
