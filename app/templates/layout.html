@@ -12,8 +12,8 @@
                 {% if session['logged_in'] %}
                 
                     {% for href, caption in[
-                        ('/index', 'Home'), ('/logout', 'Log out'),
-                        ('/createbl', 'create'), ('/dashboard', 'Dashboard')] %}
+                        ('/index', 'Home'),('/dashboard', 'Dashboard'),('/create_bucketlist', 'Create'),
+                         ('/logout', 'Log out')] %}
                     <li>
                         <a href="{{ href }}">{{ caption }}</a>
                     </li>
