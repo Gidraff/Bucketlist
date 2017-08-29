@@ -8,7 +8,16 @@
 
 <div class="create-div">
 	<form method="POST" >
-         <h1>Edit Bucketlist</h1>
+		 <h2 id="add-act-header">Edit Bucketlist</h2>
+		 {% for message in get_flashed_messages() %}
+		 {% if error %}
+			 <div class="flash">{{ message }}</div>
+		 {% else %}
+			 <div class="flash-success">{{ message }}</div>
+		 {% endif %}
+	 {% endfor %}
+
+
 		{{ render_field(form.title) }} 
 		{{ render_field(form.description) }}
 		<dd class="submit-btn"><input class="btn1" type="submit" value="Edit"></dd>
