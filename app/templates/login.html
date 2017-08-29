@@ -3,12 +3,16 @@
 {% block content %}
 {% from "include/_formhelpers.html" import render_field %}
 <div class="login-div">
-				<form method='post' action="/login">
+				<form class="login-form" method='post' action="/login">
 					<h3>Login</h3>
 					{% for message in get_flashed_messages() %}
-					<div class="flash">{{ message }}</div>
+						{% if error %}
+							<div class="flash">{{ message }}</div>
+						{% else %}
+							<div class="flash-success">{{ message }}</div>
+						{% endif %}
 					{% endfor %}
-					<fieldset >
+					<fieldset class="field-set">
 					{{ render_field(form.email) }}
 					{{ render_field(form.password) }}
 
