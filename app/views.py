@@ -74,8 +74,7 @@ def login():
                 return redirect(url_for('create_bucketlist'))
             else:
                 flash("Invalid credentials")
-                error = "Invalid credentials"
-    return render_template('login.html', form=form, error=error)
+    return render_template('login.html', form=form)
 
 class CreateBucketlist(Form):
     """create form input for bucketlist"""
@@ -134,11 +133,13 @@ def edit_bucketlist(id):
     form = EditBucketlist(request.form)
     if request.method == 'POST' and form.validate():
         for user in users:
+            message= None
             if user.email == session['logged_in']:
                 user.update_bucketlist(id, 
                     form.title.data, 
                     form.description.data 
                     )
+                flash("Successfully Edited")
                 return redirect(url_for('dashboard'))
     return render_template('edit_bucketlist.html', form=form)
 
@@ -207,7 +208,7 @@ def delete_activity(bucketlist_id, id):
 @login_required
 def logout():
     """remove user email session """
-    session.pop('logged_in', None)
+    session.clear()
     return redirect(url_for('login'))
 
 
