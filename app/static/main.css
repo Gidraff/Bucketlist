@@ -84,8 +84,16 @@ nav ul li a {
 
 .flash {
 	color: red;
-	padding: 10px;
+	padding-left: 31%;
 	width: 400px;
+	text-align: center;
+  }
+
+  .flash-success {
+	color: green;
+	padding-left: 31%;
+	width: 400px;
+	text-align: center;
   }
 
 .div-main {
@@ -105,12 +113,12 @@ nav ul li a {
 
 .reg-div {
 	text-align: center;
-	margin: 7% 20% 7% 20%;
+	margin: 5% 20% 5% 20%;
 }
 
 .reg-div form {
 	background-color: #F7ECE3;
-	padding: 55px;
+	padding: 5%;
 }
 
 .reg-div form a {
@@ -135,22 +143,41 @@ nav ul li a {
 }
 
 table td {
-	padding: 4px;
+	padding-right: 4px;
 }
 
 table {
-	padding-left: 35%;
+	padding-left: 30%;
 	}
+
+.activity-table {
+	padding-right: 5%; 
+}
+
+
+.login-form {
+	margin: 0;
+}
+
+.field-set {
+	padding: 5% 0 5% 0;
+}
+
+#add-act-header {
+	padding-left: 3.8%;
+	color: blue;
+}
+
 
 
 .login-div {
 	text-align: center;
-	margin: 0 20px 0 20px;
+	margin: 10px 10px 10px 20px;
 }
 
 .login-div form {
 	background-color: #F7ECE3;
-	padding: 120px;
+	padding: 3%;
 }
 
 .login-div form a {
@@ -164,16 +191,21 @@ table {
 	border-radius: 5px;
 }
 
+#create-header {
+	padding-left: 5.8%;
+	color: blue;
+
+}
 
 .create-div {
 	text-align: center;
-	margin: 0 20px 0 20px;
+	padding: % 5% 9% 5%;
 
 }
 
 .create-div form {
 	background-color: #F7ECE3;
-	padding: 80px;
+	padding: 8%;
 }
 
 .create-div form h2 {
@@ -191,6 +223,10 @@ table {
 
 .view-dash h1 {
 	color: blue;
+}
+
+#content {
+	padding: 5% 5% 7% 5%;
 }
 
 
