@@ -1,8 +1,6 @@
 myenv/
 .vscode/
 flask_venv/
-myenv/
-.vscode/
 *.pyc
 *.DS_Store
 *__pycache__/
