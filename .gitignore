@@ -4,3 +4,4 @@ flask_venv/
 *.pyc
 .DS_Store
 *__pycache__/
+.env
